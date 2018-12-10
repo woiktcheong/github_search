@@ -7,8 +7,8 @@
         </div>
       </div>
 
-      <div class="bg-light">
-        <h5 class="float-left">Github Search</h5>
+      <div>
+        <h2 class="float-left">Github Search</h2>
       </div>
 
       <div class="card col-md-12 page-panel">
@@ -25,59 +25,65 @@
             </div>
             <hr />
 
-            <div class="row">
-              <div class="col-md-12">
-                <ul id="resultList">
-                  <li v-for="item in items">
-                    <div class="row">
-                      <div class="card col-md-12">
-                        <div class="card-body">
-                          <div class="row">
-                            <div class="col-md-4 text-primary text-left">
-                              <b>{{item.full_name}}</b>
-                            </div>
+            <ul id="resultList">
+              <li v-for="item in items">
+                <div class="row">
 
-                            <div class="offset-md-5 col-md-2">
-                              <span class="dot"></span> {{item.language}}
-                            </div>
-                            <div class="col-md-1">
-                              <span class="fa fa-star"></span>{{item.stargazers_count}}
-                            </div>
-                          </div>
+                  <div class="card col-md-12">
+                    <div class="card-body">
+                      <div class="row">
 
-                          <div class="row">
+                        <div class="col-md-8 col-sm-12">
+                          <dir class="row">
+                            <div class="col-md-12 text-primary text-left"><b>{{item.full_name}}</b></div>
+                            <br><br/>
                             <div class="col-md-12">
                               <p class="text-left">{{item.description}}</p>
                               <p class="text-left">Updated on {{item.updated_at | formatDate}}</p>
                             </div>
-                          </div>
+                          </dir>
                         </div>
+
+                        <div class="col-md-4 col-sm-12">
+                          <dir class="row">
+                            <div class="col-md-6 text-left">
+                              <icon name="circle"></icon> {{item.language}}
+                            </div>
+                            <div class="col-md-4 text-left">
+                              <icon name="star"></icon> {{item.stargazers_count}}
+                            </div>
+                          </dir>
+                        </div>
+
                       </div>
                     </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
+                  </div>
+
+                </div>
+              </li>
+            </ul>
 
           </form>
         </div>
-      </div>
 
-      <paginate
-          :page-count="pageCount"
-          :page-range="4"
-          :margin-pages="1"
-          :click-handler="callNextPage"
-          :prev-text="'Prev'"
-          :next-text="'Next'"
-          :container-class="'pagination'"
-          :page-class="'page-item'"
-          :next-class="'page-item'"
-          :prev-class="'page-item'"
-          prev-link-class="page-link"
-          next-link-class="page-link"
-          page-link-class="page-link">
-      </paginate>
+        <div class="center-block">
+          <paginate
+              :page-count="pageCount"
+              :page-range="4"
+              :margin-pages="1"
+              :click-handler="callNextPage"
+              :prev-text="'Prev'"
+              :next-text="'Next'"
+              :container-class="'pagination'"
+              :page-class="'page-item'"
+              :next-class="'page-item'"
+              :prev-class="'page-item'"
+              prev-link-class="page-link"
+              next-link-class="page-link"
+              page-link-class="page-link">
+          </paginate>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -131,14 +137,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 10px;
-}
-
-.dot {
-  height: 10px;
-  width: 10px;
-  background-color: black;
-  border-radius: 50%;
-  display: inline-block;
+  background-color: lightgrey;
 }
 </style>
